@@ -1,0 +1,1 @@
+learned about input statement, condition statement and loops of python.
