@@ -1,0 +1,1 @@
+Learned about function, modules, operator and scope of variable in python.
