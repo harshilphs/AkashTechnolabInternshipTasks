@@ -1,0 +1,98 @@
+{% load static %}
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Dashboard</title>
+
+    <style>
+        footer{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" href="../">Employer Management System</a>
+        <div class="form-inline">
+            <h6><a href="/logout">Logout</a></h6>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Employer Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Employer Data Form</li>
+          </ol>
+        </nav>
+
+        <form method="post" action="{%url 'empDataForm' %}">{% csrf_token %}
+          {% for message in messages%}
+                <h5 class="text-danger">{{message}}</h5>
+          {% endfor %}
+          <input type="number" class="form-control" name="id" style="display:none;" value="{{emp.id}}">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" value="{{emp.email}}">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Contact no.</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter mobile" name="mobile" value="{{emp.mobile}}">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="firstname lastname" name="name" value="{{emp.name}}">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Designation</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter position" name="design" value="{{emp.design}}">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Salary</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter salary" name="salary" value="{{emp.salary}}">
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer bg-light font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="https://harshilphs.github.io/harshilpadhiyar/"> Harshil Padhiyar</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{%static 'js/jquery-3.5.1.slim.min.js' %}" ></script>
+  <script src="{%static 'js/popper.min.js' %}"></script>
+  <script src="{%static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
