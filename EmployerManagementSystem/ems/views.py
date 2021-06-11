@@ -72,7 +72,6 @@ def emp_data_form(request):
             design = request.POST['design'].lstrip().upper()
             sal = request.POST['salary'].lstrip()
             messages.info(request, "")
-
             if id != "":
                 if email != "" and contact != "" and name != "" and design != "" and sal != "":
                     emp = EmployerData.objects.get(id=id)
@@ -96,7 +95,6 @@ def emp_data_form(request):
                     return redirect("employerDashboard")
                 else:
                     messages.info(request, "All details are necessary..")
-
         return render(request, "empdataform.html")
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
